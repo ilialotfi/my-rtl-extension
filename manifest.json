@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "راست‌چین‌کن ساده",
+    "version": "1.0",
+    "description": "تمامی متن‌های صفحات را راست‌چین می‌کند",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
