@@ -1,19 +1,31 @@
 {
-    "manifest_version": 3,
-    "name": "راست‌چین‌کن ساده",
-    "version": "1.0",
-    "description": "تمامی متن‌های صفحات را راست‌چین می‌کند",
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "css": [
-                "style.css"
-            ],
-            "js": [
-                "content.js"
-            ]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "My RTL Extension",
+  "version": "1.1",
+  "description": "راست‌چین کننده هوشمند صفحات وب (مخصوص سایت‌های AI) - بهبود یافته",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.chatgpt.com/*",
+        "https://*.claude.ai/*",
+        "https://*.groq.com/*",
+        "https://*.gemini.google.com/*",
+        "https://*.perplexity.ai/*",
+        "https://*.github.com/*"
+      ],
+      "css": ["style.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RTL Toggle"
+  }
 }

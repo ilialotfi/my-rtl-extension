@@ -1,26 +1,19 @@
-/* ۱. همه‌ی المان‌ها را راست‌چین کن (به جز باکس کدها) */
+/* Improved RTL Styles */
 * {
-    direction: rtl !important;
-    text-align: right !important;
+  direction: rtl !important;
+  text-align: right !important;
 }
 
-/* ۲. ولی باکس‌های کد (و محتویات داخلشان) را کاملاً چپ‌چین نگه‌دار */
-pre,
-code,
-pre *,
-code *,
-pre code,
-code pre,
-[class*="code"],
-[class*="Code"],
-[class*="hljs"],
-.hljs,
-.monaco-editor,
-.cm-content,
-.cm-editor,
-div[class*="language-"] {
-    direction: ltr !important;
-    text-align: left !important;
-    unicode-bidi: embed !important;
-    /* برای جلوگیری از برعکس شدن علائم */
+/* Preserve LTR for code blocks and editors */
+pre, code, pre *, code *, [class*="code"], [class*="Code"], .hljs, .monaco-editor,
+.cm-content, .cm-editor, div[class*="language-"], textarea[dir="ltr"] {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: embed !important;
+}
+
+/* Better handling for inputs and textareas */
+input, textarea, [contenteditable="true"] {
+  direction: rtl !important;
+  text-align: right !important;
 }
